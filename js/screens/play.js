@@ -2,12 +2,19 @@ game.PlayScreen = me.ScreenObject.extend({
     /**
      *  action to perform on state change
      */
+
+	checkIfLoss : function (x) {
+		if (x <= this.player.pos.x) {
+		   this.reset();
+		}
+	},
     onResetEvent: function() {
         const WIDTH = 640;
-        me.game.world.addChild(new me.ColorLayer("background", "#ffff00"), 0);
+        me.game.world.addChild(new me.ColorLayer("background", "#03a9f4"), 0);
 
         // adding a player
-        me.game.world.addChild(me.pool.pull("player"), 1);
+        this.player = me.pool.pull("player", 50, 50);
+        me.game.world.addChild(this.player, 1);
 
         // adding oil
         me.game.world.addChild(me.pool.pull("enemy", WIDTH -10, 50), 2);

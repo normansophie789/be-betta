@@ -1,22 +1,23 @@
-game.Player = me.Sprite.extend({
-    init: function () {
-        var image = me.loader.getImage("amber_1");
-        this._super(me.Sprite, "init", [
-            image.width + 50,
-            me.game.viewport.height - image.height - 50,
-            { image : image }
+game.Player = me.Entity.extend({
+    init: function (x, y) {
+        this._super(me.Entity, "init", [
+            x, y, {
+                image: "amber",
+                width: 100,
+                height: 100
+            }
         ]);
         this.vely = 450;
-        this.maxY = me.game.viewport.height - this.height / 2;
+        this.maxY = me.game.viewport.height - this.height;
     },
-    update : function (time) {
-        this._super(me.Sprite, "update", [time]);
+    update : function (dt) {
+        this._super(me.Entity, "update", [dt]);
         if (me.input.isKeyPressed("up")) {
-            this.pos.y -= this.vely * time / 1000;
+            this.pos.y -= this.vely * dt / 1000;
         }
     
         if (me.input.isKeyPressed("down")) {
-            this.pos.y += this.vely * time / 1000;
+            this.pos.y += this.vely * dt / 1000;
         }
     
         this.pos.y = me.Math.clamp(this.pos.y, me.game.viewport.height * 0.25, this.maxY);
