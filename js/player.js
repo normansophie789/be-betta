@@ -1,6 +1,6 @@
 game.Player = me.Sprite.extend({
     init: function () {
-        var image = me.loader.getImage("player");
+        var image = me.loader.getImage("amber_1");
         this._super(me.Sprite, "init", [
             image.width + 50,
             me.game.viewport.height - image.height - 50,

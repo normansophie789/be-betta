@@ -1,9 +1,9 @@
 game.Enemy = me.Entity.extend({
 	init: function (x, y) {
 		this._super(me.Entity, "init", [x, y, {
-			image : "oil",
-			width : 64,
-			height : 64
+			image : "oil_spill",
+			width : 300,
+			height : 300
 		}]);
 		this.velx = 50;
 		this.body.setVelocity(0, 0);
