@@ -19,7 +19,9 @@ game.PlayScreen = me.ScreenObject.extend({
         me.game.world.addChild(this.player, 1);
 
         // adding oil
-        me.game.world.addChild(me.pool.pull("enemy", WIDTH -10, 50), 2);
+        var x = me.game.viewport.width - 1
+        var y = Math.floor(Math.random() * (0, me.game.viewport.height));  
+        me.game.world.addChild(me.pool.pull("enemy", x, y), 2);
 
         me.input.bindKey(me.input.KEY.UP, "up");
         me.input.bindKey(me.input.KEY.DOWN, "down");
