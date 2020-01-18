@@ -15,7 +15,7 @@ game.Enemy = me.Entity.extend({
 		if (this.pos.x < -this.width)
 			this.pos.x = me.game.viewport.width - 10;
 		
-		game.playScreen.checkIfLoss(this.pos.x)
+		game.playScreen.checkIfLoss(this.pos.x, this.pos.y, this.height)
 		
 		return true;
 	}

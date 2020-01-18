@@ -3,10 +3,12 @@ game.PlayScreen = me.ScreenObject.extend({
      *  action to perform on state change
      */
 
-	checkIfLoss : function (x) {
-		if (x <= this.player.pos.x) {
-		   this.reset();
-		}
+	checkIfLoss : function (x, y, height) {
+        if (this.player.pos.y >= y && this.player.pos.y <= y + height){
+            if (x <= this.player.pos.x) {
+                this.reset();
+            }
+        }
 	},
     onResetEvent: function() {
         const WIDTH = 640;
