@@ -1,11 +1,11 @@
 game.Enemy = me.Entity.extend({
-	init: function (x, y) {
+	init: function (x, y, velocity) {
 		this._super(me.Entity, "init", [x, y, {
 			image : "oil_spill",
 			width : 300,
 			height : 300
 		}]);
-		this.velx = 100;
+		this.velx = velocity;
 	},
   
 	update: function (dt) {

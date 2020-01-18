@@ -19,7 +19,7 @@ game.PlayScreen = me.ScreenObject.extend({
         me.game.world.addChild(this.player, 1);
 
     
-        me.game.world.addChild(me.pool.pull("enemyManager", 0, 0), 2);
+        me.game.world.addChild(me.pool.pull("enemyManager", 0, 0, 3000.0, 200), 2);
 
         me.input.bindKey(me.input.KEY.UP, "up");
         me.input.bindKey(me.input.KEY.DOWN, "down");
