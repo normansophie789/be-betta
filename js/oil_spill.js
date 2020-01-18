@@ -12,8 +12,10 @@ game.Enemy = me.Entity.extend({
 		this._super(me.Entity, "update", [dt]);
 		this.pos.x -= this.velx * dt / 1000;
 
-		if (this.pos.x < -this.width)
-			this.pos.x = me.game.viewport.width - 10;
+		if (this.pos.x < -this.width) {
+			me.game.world.removeChild(this, true);
+			return false;
+		}
 		
 		game.playScreen.checkIfLoss(this.pos.x, this.pos.y, this.height)
 		
