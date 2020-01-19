@@ -11,7 +11,7 @@ game.PlayScreen = me.ScreenObject.extend({
         me.game.world.addChild(new me.ColorLayer("background", "#03a9f4"), 0);
 
         // adding a player
-        this.player = me.pool.pull("player", 50, 50);
+        this.player = me.pool.pull("player", 100, 100);
         me.game.world.addChild(this.player, 1);
 
     

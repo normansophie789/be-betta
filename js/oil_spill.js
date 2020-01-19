@@ -6,7 +6,9 @@ game.Enemy = me.Entity.extend({
 			height : 117
 		}]);
 		this.velx = velocity;
+        this.body = new me.Body(this);
 		this.body.setVelocity(0, 0);
+        this.body.addShape(new me.Ellipse(0, 0, this.width * 0.9, this.height * 0.9));
 		this.body.collisionType = me.collision.types.ENEMY_OBJECT;
 	},
   
