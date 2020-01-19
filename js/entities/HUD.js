@@ -74,9 +74,6 @@ game.HUD.ScoreItem = me.Renderable.extend({
        //me.game.world.addChild(myFont);
        
         game.data.score += 1;
-       console.log("points: " + game.data.score);
-       console.log("testX"+ me.game.viewport.width);
-       console.log("testY"+ me.game.viewport.height);
 		this.font.draw(renderer, "Score: " + game.data.score , me.game.viewport.width + (this.pos.x * -2), me.game.viewport.height + (this.pos.y * -5));
         //this.font.draw(renderer, "Points: " + game.data.score , this.pos.x,  this.pos.y);
         //this.font.draw(renderer, "Points: " + game.data.score , me.game.viewport.width + this.pos.x , me.game.viewport.height +this.pos.y);
