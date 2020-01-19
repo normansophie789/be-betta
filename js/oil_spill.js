@@ -6,19 +6,20 @@ game.Enemy = me.Entity.extend({
 			height : 117
 		}]);
 		this.velx = velocity;
+		this.body.setVelocity(0, 0);
+		this.body.collisionType = me.collision.types.ENEMY_OBJECT;
 	},
   
 	update: function (dt) {
 		this._super(me.Entity, "update", [dt]);
+		this.body.update();
 		this.pos.x -= this.velx * dt / 1000;
 
 		if (this.pos.x < -this.width) {
 			me.game.world.removeChild(this, true);
 			return false;
 		}
-		
-		game.playScreen.checkIfLoss(this.pos.x, this.pos.y, this.height)
-		
+
 		return true;
 	}
   });
