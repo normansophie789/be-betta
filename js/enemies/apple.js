@@ -2,10 +2,10 @@ game.Apple = me.Entity.extend({
 	init: function (x, y) {
 		this._super(me.Entity, "init", [x, y, {
 			image : "apple",
-			width : 138,
-			height : 182
+			width : 46,
+			height : 61
 		}]);
-		this.velx = 500;
+		this.velx = 550;
         this.body = new me.Body(this);
 		this.body.setVelocity(0, 0);
         this.body.addShape(new me.Ellipse(0, 0, this.width * 0.95, this.height * 0.95));

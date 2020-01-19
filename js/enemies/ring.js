@@ -2,8 +2,8 @@ game.Ring = me.Entity.extend({
 	init: function (x, y) {
 		this._super(me.Entity, "init", [x, y, {
 			image : "ring",
-			width : 219,
-			height : 153
+			width : 146,
+			height : 102
 		}]);
 		this.velx = 150;
         this.body = new me.Body(this);

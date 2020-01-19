@@ -89,6 +89,8 @@ game.EnemyManager = me.Entity.extend({
 			}
 		}
 
+		return true;
+
 	}
 
   });
