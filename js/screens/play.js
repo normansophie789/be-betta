@@ -18,8 +18,15 @@ game.PlayScreen = me.ScreenObject.extend({
         this.player = me.pool.pull("player", 50, 50);
         me.game.world.addChild(this.player, 1);
 
-    
+        //this.enemyManager = new game.EnemyManager();
+       // this.enemyManager.generateEnemy();
+       // me.game.world.addChild(this.enemyManager,2);
         me.game.world.addChild(me.pool.pull("enemyManager", 0, 0, 3000.0, 200), 2);
+
+        game.data.score = 0;
+        this.HUD = new game.HUD.Container();
+        me.game.world.addChild(this.HUD);
+
 
         me.input.bindKey(me.input.KEY.UP, "up");
         me.input.bindKey(me.input.KEY.DOWN, "down");

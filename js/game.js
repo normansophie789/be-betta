@@ -30,7 +30,7 @@ var game = {
         me.pool.register("player", game.Player);
         me.pool.register("enemy", game.Enemy);
         me.pool.register("enemyManager", game.EnemyManager);
-
+        
         // set the "Play/Ingame" Screen Object
         this.playScreen = new game.PlayScreen();
         me.state.set(me.state.PLAY, this.playScreen);

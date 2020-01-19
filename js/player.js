@@ -27,7 +27,7 @@ game.Player = me.Entity.extend({
 
     onCollision : function (res, other) {
         if (other.body.collisionType === me.collision.types.ENEMY_OBJECT) {
-            console.log("I've been hit");
+        
             return false;
         }
     }

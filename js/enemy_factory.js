@@ -15,10 +15,6 @@ game.EnemyManager = me.Entity.extend({
 	update: function (dt) {
 		// countdown
 		// add children
-
-		this.currentTime += (me.timer.getDelta() / this.delay);
-		console.log(this.currentTime);
-
 		if (this.currentTime >= 1) {
 			this.generateEnemy();
 			this.currentTime = 0;
