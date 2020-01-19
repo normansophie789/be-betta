@@ -10,7 +10,7 @@ game.Player = me.Entity.extend({
         this.vely = 450;
         this.maxY = me.game.viewport.height - this.height/2;
         this.body = new me.Body(this);
-        this.body.addShape(new me.Ellipse(0, 0, this.width*0.4, this.height*0.4));
+        this.body.addShape(new me.Ellipse(0, 0, this.width*0.6, this.height*0.6));
         this.body.setVelocity(0, 0);
 		this.body.collisionType = me.collision.types.PLAYER_OBJECT;
     },
