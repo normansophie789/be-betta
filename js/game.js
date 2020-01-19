@@ -29,6 +29,10 @@ var game = {
     "loaded" : function () {
         me.pool.register("player", game.Player);
         me.pool.register("oilspill", game.OilSpill);
+        me.pool.register("bag", game.Bag);
+        me.pool.register("net", game.Net);
+        me.pool.register("ring", game.Ring);
+        me.pool.register("apple", game.Apple);
         me.pool.register("enemyManager", game.EnemyManager);
 
         // set the "Play/Ingame" Screen Object
