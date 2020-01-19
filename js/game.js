@@ -28,7 +28,7 @@ var game = {
     // Run on game resources loaded.
     "loaded" : function () {
         me.pool.register("player", game.Player);
-        me.pool.register("enemy", game.Enemy);
+        me.pool.register("oilspill", game.OilSpill);
         me.pool.register("enemyManager", game.EnemyManager);
 
         // set the "Play/Ingame" Screen Object
