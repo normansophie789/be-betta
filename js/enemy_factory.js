@@ -44,11 +44,11 @@ game.EnemyManager = me.Entity.extend({
 		this.currentTime = 0;
 
 		this.enemyTimers = {
-			oilspill: { delay: 2000, timer: 0, counter: 0},
-			bag: { delay: 4000, timer: 0, counter: 0},
-			net: { delay: 7000, timer: 0, counter: 0},
-			ring: { delay: 10000, timer: 0, counter: 0},
-			apple: { delay: 15000, timer: 0, counter: 0}
+			oilspill: { delay: 3000, timer: 0, counter: 0},
+			bag: { delay: 7000, timer: 0, counter: 0},
+			net: { delay: 10000, timer: 0, counter: 0},
+			ring: { delay: 15000, timer: 0, counter: 0},
+			apple: { delay: 20000, timer: 0, counter: 0}
 		}
 	},
 
