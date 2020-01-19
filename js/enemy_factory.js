@@ -87,7 +87,6 @@ game.EnemyManager = me.Entity.extend({
 				this.currentTime = 0;
 			} else {
 			}
-
 		}
 
 	}
