@@ -1,7 +1,7 @@
 game.EnemyManager = me.Entity.extend({
 	generateEnemy: function (type) {
 		let x = me.game.viewport.width - 1;
-		let y = Math.random() * (me.game.viewport.height - 200);
+		let y = 50 +  Math.random() * (me.game.viewport.height - 50);
 		let enemyName = null;
 
 		switch(type) {
