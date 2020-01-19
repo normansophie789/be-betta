@@ -3,8 +3,8 @@ game.Player = me.Entity.extend({
         this._super(me.Entity, "init", [
             x, y, {
                 image: "amber",
-                width: 200,
-                height: 200
+                width: 124,
+                height: 80
             }
         ]);
         this.vely = 450;
