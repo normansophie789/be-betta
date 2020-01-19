@@ -9,9 +9,15 @@ game.Player = me.Entity.extend({
         ]);
         this.vely = 450;
         this.maxY = me.game.viewport.height - this.height;
+        this.body = new me.Body(this);
+        this.body.addShape(new me.Ellipse(0, 0, this.width*0.7, this.height*0.7));
+        this.body.setVelocity(0, 0);
+		this.body.collisionType = me.collision.types.PLAYER_OBJECT;
     },
     update : function (dt) {
         this._super(me.Entity, "update", [dt]);
+        
+        this.body.update();
         if (me.input.isKeyPressed("up")) {
             this.pos.y -= this.vely * dt / 1000;
         }
@@ -20,14 +26,15 @@ game.Player = me.Entity.extend({
             this.pos.y += this.vely * dt / 1000;
         }
     
-        this.pos.y = me.Math.clamp(this.pos.y, me.game.viewport.height * 0.25, this.maxY);
+        this.pos.y = me.Math.clamp(this.pos.y, 0, this.maxY);
+        me.collision.check(this);
     
         return true;
     },
 
     onCollision : function (res, other) {
         if (other.body.collisionType === me.collision.types.ENEMY_OBJECT) {
-            console.log("I've been hit");
+            game.playScreen.resetGame(); // resetting the game if the player's been yeeted
             return false;
         }
     }
