@@ -6,88 +6,94 @@ game.EnemyManager = me.Entity.extend({
 
 		switch(type) {
 			case 1: 
-				this.enemyCounts.oilspill ++;
+				this.enemyTimers.oilspill.counter ++;
 				enemyName = "oilspill";
 				console.log("case 1");
 				break;
 			case 2: 
-				this.enemyCounts.bag ++;
+				this.enemyTimers.bag.counter ++;
 				enemyName = "bag";
 				console.log("case 2")
 				break;
 			case 3: 
-				this.enemyCounts.net ++;
+				this.enemyTimers.net.counter ++;
 				enemyName = "net";
 				console.log("case 3")
 				break;
 			case 4: 
-				this.enemyCounts.ring ++;
+				this.enemyTimers.ring.counter ++;
 				enemyName = "ring";
 				console.log("case 4")
 				break;
 			case 5: 
-				this.enemyCounts.apple ++;
+				this.enemyTimers.apple.counter ++;
 				enemyName = "apple";
 				console.log("case 5")
 				break;
 		}
 
 		if (enemyName)
-			me.game.world.addChild(me.pool.pull(enemyName, x, y, this.velocity), 2);
+			me.game.world.addChild(me.pool.pull(enemyName, x, y), 2);
 	},
 	
-	init : function (x, y, delay, velocity) {
+	init : function (x, y) {
 		this._super(me.Entity, "init", [x, y, {
 			width: 1, height: 1
 		}]);
 
-		this.delay = delay;
-		this.velocity = velocity;
 		this.currentTime = 0;
 
-		this.enemyCounts = {
-			oilspill: 0,
-			bag: 0,
-			net: 0,
-			ring: 0,
-			apple: 0
+		this.enemyTimers = {
+			oilspill: { delay: 2000, timer: 0, counter: 0},
+			bag: { delay: 4000, timer: 0, counter: 0},
+			net: { delay: 7000, timer: 0, counter: 0},
+			ring: { delay: 10000, timer: 0, counter: 0},
+			apple: { delay: 15000, timer: 0, counter: 0}
 		}
 	},
 
 	update: function (dt) {
-		this.currentTime += (me.timer.getDelta() / this.delay);
-
-		if (this.currentTime > 1) {
-			if (Math.floor(this.currentTime) % 2 == 0 && this.enemyCounts.oilspill < 1) {
-				// oil spill
-				this.generateEnemy(1);
-			} else if (Math.floor(this.currentTime) % 3 == 0 && this.enemyCounts.bag < 1) {
-				// bag
-				this.generateEnemy(2);
-				this.enemyCounts.net= 0;
-				this.enemyCounts.ring= 0;
-				this.enemyCounts.apple= 0;
-			} else if (Math.floor(this.currentTime) % 5 == 0 && this.enemyCounts.net < 1) {
-				// net
-				this.generateEnemy(3);
-				this.enemyCounts.oilspill= 0;
-				this.enemyCounts.bag= 0;
-				this.enemyCounts.ring= 0;
-				this.enemyCounts.apple= 0;
-			} else if (Math.floor(this.currentTime) % 7 == 0 && this.enemyCounts.ring < 1) {
-				//ring
-				this.generateEnemy(4);
-				this.enemyCounts.oilspill= 0;
-				this.enemyCounts.bag= 0;
-				this.enemyCounts.net= 0;
-				this.enemyCounts.apple= 0;
-			} else if (Math.floor(this.currentTime) % 11 == 0 && this.enemyCounts.apple < 1) {
-				// apple
-				this.generateEnemy(5);
-				this.currentTime = 0;
-			} else {
-			}
+		this.currentTime += dt;
+		this.enemyTimers.oilspill.timer += dt;
+		this.enemyTimers.bag.timer += dt;
+		this.enemyTimers.net.timer += dt;
+		this.enemyTimers.ring.timer += dt;
+		this.enemyTimers.apple.timer += dt;
+		
+		if (this.enemyTimers.oilspill.timer >= this.enemyTimers.oilspill.delay) {
+			this.generateEnemy(1);
+			this.enemyTimers.oilspill.timer = 0;
 		}
+
+		if (this.enemyTimers.bag.timer >= this.enemyTimers.bag.delay) {
+			this.generateEnemy(2);
+			this.enemyTimers.bag.timer = 0;
+		}
+
+		if (this.enemyTimers.net.timer >= this.enemyTimers.net.delay) {
+			this.generateEnemy(3);
+			this.enemyTimers.net.timer = 0;
+		}
+
+		if (this.enemyTimers.ring.timer >= this.enemyTimers.ring.delay) {
+			this.generateEnemy(4);
+			this.enemyTimers.ring.timer = 0;
+		}
+
+		if (this.enemyTimers.apple.timer >= this.enemyTimers.apple.delay){
+			this.generateEnemy(5);
+			this.enemyTimers.apple.timer = 0;
+		}
+
+		if (this.currentTime >= 20000) {
+			this.enemyTimers.oilspill.delay * 0.99;
+			this.enemyTimers.bag.delay * 0.99;
+			this.enemyTimers.net.delay * 0.99;
+			this.enemyTimers.ring.delay * 0.99;
+			this.enemyTimers.apple.delay * 0.995;
+		}
+
+		return true;
 
 	}
 
