@@ -5,7 +5,8 @@ var game = {
     // an object where to store game information
     data : {
         // score
-        score : 0
+        score : 0,
+        timer : 0
     },
 
 
@@ -36,10 +37,11 @@ var game = {
         me.pool.register("enemyManager", game.EnemyManager);
         
         // set the "Play/Ingame" Screen Object
-        this.playScreen = new game.PlayScreen();
-        me.state.set(me.state.PLAY, this.playScreen);
+        me.state.set(me.state.PLAY, new game.PlayScreen());
+        me.state.set(me.state.GAME_END, new game.EndTitleScreen());
+        me.state.set(me.state.START, new game.TitleScreen());
 
         // start the game
-        me.state.change(me.state.PLAY);
+        me.state.change(me.state.START);
     }
 };

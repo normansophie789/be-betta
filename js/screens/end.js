@@ -1,4 +1,4 @@
-game.TitleScreen = me.ScreenObject.extend({
+game.EndTitleScreen = me.ScreenObject.extend({
     /**
      *  action to perform on state change
      */
@@ -12,7 +12,7 @@ game.TitleScreen = me.ScreenObject.extend({
         //me.game.world.addChild(new me.ColorLayer("background", "#03a9f4"), 0);
 
         me.game.world.addChild(new me.ImageLayer(0, 0, {
-            image:"titleScreen",
+            image:"game_over",
             repeat :"repeat-x"
         }), 0);
 

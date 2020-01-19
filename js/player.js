@@ -34,7 +34,7 @@ game.Player = me.Entity.extend({
 
     onCollision : function (res, other) {
         if (other.body.collisionType === me.collision.types.ENEMY_OBJECT) {
-            game.playScreen.resetGame(); // resetting the game if the player's been yeeted
+            me.state.change(me.state.GAME_END); 
             return false;
         }
     }

@@ -42,7 +42,6 @@ game.HUD.ScoreItem = me.Renderable.extend({
 
         this.font.textAlign = "right";
         this.font.textBaseline = "bottom";
-
         // local copy of the global score
         this.score = 0;
     },
@@ -56,6 +55,9 @@ game.HUD.ScoreItem = me.Renderable.extend({
         if (this.score !== game.data.score) {
             this.score = game.data.score;
             return true;
+        } 
+        if (me.input.isKeyPressed("enter")) {
+            me.state.change(me.state.PLAY);
         }
         return false;
     },
@@ -72,8 +74,14 @@ game.HUD.ScoreItem = me.Renderable.extend({
         // Then create an instance of your bitmap font:
       //var myFont = new me.BitmapText(20, 5, {font:"PressStart2P", text: game.data.score});
        //me.game.world.addChild(myFont);
-       
-        game.data.score += 1;
+       game.data.timer ++;
+
+       //console.log(game.data.timer);
+
+        if (game.data.timer >= 10) {
+            game.data.score ++;
+            game.data.timer = 0
+        }
 		this.font.draw(renderer, "Score: " + game.data.score , me.game.viewport.width + (this.pos.x * -2), me.game.viewport.height + (this.pos.y * -5));
         //this.font.draw(renderer, "Points: " + game.data.score , this.pos.x,  this.pos.y);
         //this.font.draw(renderer, "Points: " + game.data.score , me.game.viewport.width + this.pos.x , me.game.viewport.height +this.pos.y);
