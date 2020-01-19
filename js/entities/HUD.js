@@ -38,9 +38,13 @@ game.HUD.ScoreItem = me.Renderable.extend({
         // call the parent constructor
         // (size does not matter here)
         this._super(me.Renderable, 'init', [x, y, 10, 10]);
+        this.font = new me.BitmapFont(me.loader.getBinary('PressStart2P'), me.loader.getImage('PressStart2P'));
+
+        this.font.textAlign = "right";
+        this.font.textBaseline = "bottom";
 
         // local copy of the global score
-        this.score = -1;
+        this.score = 0;
     },
 
     /**
@@ -59,8 +63,24 @@ game.HUD.ScoreItem = me.Renderable.extend({
     /**
      * draw the score
      */
-    draw : function (context) {
-        // draw it baby !
+    draw : function (renderer) {
+        //me.loader.preload([
+        //   { name: "PressStart2P", type:"image", src: "data/fnt/PressStart2P.png" },
+        //    { name: "PressStart2P", type:"binary", src: "data/fnt/PressStart2P.fnt"}
+        //])
+        //game.data.score += 1;
+        // Then create an instance of your bitmap font:
+      //var myFont = new me.BitmapText(20, 5, {font:"PressStart2P", text: game.data.score});
+       //me.game.world.addChild(myFont);
+       
+        game.data.score += 1;
+       console.log("points: " + game.data.score);
+       console.log("testX"+ me.game.viewport.width);
+       console.log("testY"+ me.game.viewport.height);
+		this.font.draw(renderer, "Score: " + game.data.score , me.game.viewport.width + (this.pos.x * -2), me.game.viewport.height + (this.pos.y * -5));
+        //this.font.draw(renderer, "Points: " + game.data.score , this.pos.x,  this.pos.y);
+        //this.font.draw(renderer, "Points: " + game.data.score , me.game.viewport.width + this.pos.x , me.game.viewport.height +this.pos.y);
+      
     }
 
 });
