@@ -22,7 +22,8 @@ game.PlayScreen = me.ScreenObject.extend({
         //this.enemyManager = new game.EnemyManager();
        // this.enemyManager.generateEnemy();
        // me.game.world.addChild(this.enemyManager,2);
-        me.game.world.addChild(me.pool.pull("enemyManager", 0, 0), 2);
+	this.enemyManager = me.pool.pull("enemyManager", 0, 0);
+        me.game.world.addChild(this.enemyManager, 2);
 
         game.data.score = 0;
         this.HUD = new game.HUD.Container();
