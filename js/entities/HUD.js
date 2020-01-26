@@ -49,21 +49,11 @@ game.HUD.ScoreItem = me.Renderable.extend({
     /**
      * update function
      */
-    update : function (dt) {
+    update : function () {
         // we don't do anything fancy here, so just
         // return true if the score has been updated
-        if(me.state.isCurrent(me.state.PLAY)){
-            game.data.timer ++;
-
-            if (game.data.timer >= 10) {
-                game.data.score ++;
-                game.data.timer = 0
-            }
-        }
-
         if (this.score !== game.data.score) {
             this.score = game.data.score;
-            console.log("updated");
             return true;
         } 
         if (me.input.isKeyPressed("enter")) {
@@ -76,16 +66,26 @@ game.HUD.ScoreItem = me.Renderable.extend({
      * draw the score
      */
     draw : function (renderer) {
-       
-		this.font.draw(renderer, "Score: " + game.data.score , me.game.viewport.width + (this.pos.x * -2), me.game.viewport.height + (this.pos.y * -5));
-      
+        //me.loader.preload([
+        //   { name: "PressStart2P", type:"image", src: "data/fnt/PressStart2P.png" },
+        //    { name: "PressStart2P", type:"binary", src: "data/fnt/PressStart2P.fnt"}
+        //])
+        //game.data.score += 1;
+        // Then create an instance of your bitmap font:
+      //var myFont = new me.BitmapText(20, 5, {font:"PressStart2P", text: game.data.score});
+       //me.game.world.addChild(myFont);
+       game.data.timer ++;
 
-        game.data.timer ++;
+       //console.log(game.data.timer);
 
         if (game.data.timer >= 10) {
             game.data.score ++;
             game.data.timer = 0
         }
+		this.font.draw(renderer, "Score: " + game.data.score , me.game.viewport.width + (this.pos.x * -2), me.game.viewport.height + (this.pos.y * -5));
+        //this.font.draw(renderer, "Points: " + game.data.score , this.pos.x,  this.pos.y);
+        //this.font.draw(renderer, "Points: " + game.data.score , me.game.viewport.width + this.pos.x , me.game.viewport.height +this.pos.y);
+      
     }
 
 });
