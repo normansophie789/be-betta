@@ -1,24 +1,8 @@
 game.EnemyManager = me.Entity.extend({
-	init : function (x, y) {
-		this._super(me.Entity, "init", [x, y, {
-			width: 1, height: 1
-		}]);
-
-		this.currentTime = 0;
-
-		this.enemyTimers = {
-			oilspill: { delay: 3000, timer: 0, counter: 0},
-			bag: { delay: 7000, timer: 0, counter: 0},
-			net: { delay: 10000, timer: 0, counter: 0},
-			ring: { delay: 15000, timer: 0, counter: 0},
-			apple: { delay: 20000, timer: 0, counter: 0}
-		}
-	},
-
 	generateEnemy: function (type) {
-		var x = me.game.viewport.width - 1;
-		var y = 50 +  Math.random() * (me.game.viewport.height - 50);
-		var enemyName = null;
+		let x = me.game.viewport.width - 1;
+		let y = 50 +  Math.random() * (me.game.viewport.height - 50);
+		let enemyName = null;
 
 		switch(type) {
 			case 1: 
@@ -50,6 +34,22 @@ game.EnemyManager = me.Entity.extend({
 
 		if (enemyName)
 			me.game.world.addChild(me.pool.pull(enemyName, x, y), 2);
+	},
+	
+	init : function (x, y) {
+		this._super(me.Entity, "init", [x, y, {
+			width: 1, height: 1
+		}]);
+
+		this.currentTime = 0;
+
+		this.enemyTimers = {
+			oilspill: { delay: 3000, timer: 0, counter: 0},
+			bag: { delay: 7000, timer: 0, counter: 0},
+			net: { delay: 10000, timer: 0, counter: 0},
+			ring: { delay: 15000, timer: 0, counter: 0},
+			apple: { delay: 20000, timer: 0, counter: 0}
+		}
 	},
 
 	update: function (dt) {
