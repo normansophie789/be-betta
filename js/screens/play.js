@@ -22,7 +22,7 @@ game.PlayScreen = me.ScreenObject.extend({
         //this.enemyManager = new game.EnemyManager();
        // this.enemyManager.generateEnemy();
        // me.game.world.addChild(this.enemyManager,2);
-        this.enemyManager =  me.game.world.addChild(me.pool.pull("enemyManager", 0, 0), 2);
+        me.game.world.addChild(me.pool.pull("enemyManager", 0, 0), 2);
 
         game.data.score = 0;
         this.HUD = new game.HUD.Container();
@@ -43,8 +43,5 @@ game.PlayScreen = me.ScreenObject.extend({
         me.input.unbindKey(me.input.KEY.DOWN);
         me.input.unbindKey(me.input.KEY.W);
         me.input.unbindKey(me.input.KEY.S);
-        me.game.world.removeChild(this.HUD);
-        me.game.world.removeChild(this.player);
-        me.game.world.removeChild(this.enemyManager);
     }
 });
