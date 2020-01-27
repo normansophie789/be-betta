@@ -30,25 +30,50 @@
     
             <!-- Banner -->
                 <section id="banner">
-                    <div class="inner">
-                        <h1>Site currently under C*</h1>
-                        <p>*construction</p>
-                        <br><br><br><br><br><br><br><br><br><h3>Scroll</h3><h1>&#65516;</h1> 
-    
+                    <div class="inner"> 
+                    <!-- Canvas placeholder -->
+                        <div id="screen"></div>
+
+                        <!-- es5/es6 shim for legacy browsers" -->
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.11/es5-shim.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.11/es5-sham.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-sham.min.js"></script>
+
+                        <!-- melonJS Library -->
+                        <!-- build:js js/app.min.js -->
+                        <script type="text/javascript" src="lib/melonjs.js"></script>
+
+                        <!-- Plugin(s) -->
+                        <script type="text/javascript" src="lib/plugins/debug/debugPanel.js"></script>
+
+                        <!-- Game Scripts -->
+                        <script type="text/javascript" src="js/game.js"></script>
+                        <script type="text/javascript" src="js/player.js"></script>
+
+                        <script type="text/javascript" src="js/enemies/oil_spill.js"></script>
+                        <script type="text/javascript" src="js/enemies/bag.js"></script>
+                        <script type="text/javascript" src="js/enemies/net.js"></script>
+                        <script type="text/javascript" src="js/enemies/ring.js"></script>
+                        <script type="text/javascript" src="js/enemies/apple.js"></script>
+
+                        <script type="text/javascript" src="js/enemy_factory.js"></script>
+                        <script type="text/javascript" src="build/js/resources.js"></script>
+                        <script type="text/javascript" src="js/entities/HUD.js"></script>
+                        <script type="text/javascript" src="js/screens/title.js"></script>
+                        <script type="text/javascript" src="js/screens/play.js"></script>
+                        <script type="text/javascript" src="js/screens/end.js"></script>
+                        <!-- /build -->
+
+                        <!-- Bootstrap -->
+                        <script type="text/javascript">
+                            me.device.onReady(function onReady() {
+                                game.onload();
+                            });
+                        </script>
                     </div>
-                    <video autoplay loop muted playsinline src="images/banner.mp4"></video>
                 </section>
-            <!-- Testimonials -->
-                <section class="wrapper">
-                    <div class="inner">
-                        <header class="special">
-                            <h2><b>🏆 Winner of MLH Best Domain Name 🏆</b></h2>
-                            <p><b>HackCambridge101- 19th January 2020</b>
-                            <br>Hosted by the University of Cambridge, Major League Hacking and BlackRock</p>
-                        </header>
-                    </div>
-                </section>
-    
+
             <!-- Footer -->
                 <footer id="footer">
                     <div class="inner">
@@ -81,46 +106,6 @@
                         </div>
                     </div>
                 </footer>
-        <!-- Canvas placeholder -->
-        <div id="screen"></div>
-
-        <!-- es5/es6 shim for legacy browsers" -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.11/es5-shim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.11/es5-sham.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-sham.min.js"></script>
-
-        <!-- melonJS Library -->
-        <!-- build:js js/app.min.js -->
-        <script type="text/javascript" src="lib/melonjs.js"></script>
-
-        <!-- Plugin(s) -->
-        <script type="text/javascript" src="lib/plugins/debug/debugPanel.js"></script>
-
-        <!-- Game Scripts -->
-        <script type="text/javascript" src="js/game.js"></script>
-        <script type="text/javascript" src="js/player.js"></script>
-
-        <script type="text/javascript" src="js/enemies/oil_spill.js"></script>
-        <script type="text/javascript" src="js/enemies/bag.js"></script>
-        <script type="text/javascript" src="js/enemies/net.js"></script>
-        <script type="text/javascript" src="js/enemies/ring.js"></script>
-        <script type="text/javascript" src="js/enemies/apple.js"></script>
-
-        <script type="text/javascript" src="js/enemy_factory.js"></script>
-        <script type="text/javascript" src="build/js/resources.js"></script>
-        <script type="text/javascript" src="js/entities/HUD.js"></script>
-        <script type="text/javascript" src="js/screens/title.js"></script>
-        <script type="text/javascript" src="js/screens/play.js"></script>
-        <script type="text/javascript" src="js/screens/end.js"></script>
-        <!-- /build -->
-
-        <!-- Bootstrap -->
-        <script type="text/javascript">
-            me.device.onReady(function onReady() {
-                game.onload();
-            });
-        </script>
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/browser.min.js"></script>
         <script src="assets/js/breakpoints.min.js"></script>
