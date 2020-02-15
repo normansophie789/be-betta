@@ -17,27 +17,38 @@ module.exports = function(grunt) {
 
     copy: {
       dist: {
-        files: [{
+        files: [
+        {
           src: 'index.css',
           dest: 'build/index.css'
-        },{
+        },
+        {
           src: 'main.js',
           dest: 'build/main.js'
-        },{
+        },
+        {
           src: 'manifest.json',
           dest: 'build/manifest.json'
-        },{
+        },
+        {
           src: 'package.json',
           dest: 'build/package.json'
-        },{
+        },
+        {
           src: 'data/**/*',
           dest: 'build/',
           expand: true
-        },{
+        },
+        {
           src: 'icons/*',
           dest: 'build/',
           expand: true
-        }]
+        },
+      {
+        src: 'assets/**/*',
+        dest: 'build/',
+        expand: true
+      }]
       }
     },
 
