@@ -60,15 +60,15 @@ game.HUD.ScoreItem = me.Renderable.extend({
             me.state.change(me.state.PLAY);
         }
 
-        // // only incrementing points if in play state
+        // only incrementing points if in play state
         // if (me.state.isCurrent(me.state.PLAY)) {
-        //     game.data.timer += dt;
+        //  game.data.timer += dt;
 
-        //     if (game.data.timer >= 80) {
-        //         game.data.score ++;
-        //         game.data.timer = 0
-        //     }
-        // }
+        //      if (game.data.timer >= 80) {
+        //          game.data.score ++;
+        //          game.data.timer = 0
+        //      }
+        //  }
 
         return false;
     },
@@ -85,7 +85,7 @@ game.HUD.ScoreItem = me.Renderable.extend({
             game.data.score ++;
             game.data.timer = 0
         }
-       
+      
 		this.font.draw(renderer, "Score: " + game.data.score , me.game.viewport.width + (this.pos.x * -2), me.game.viewport.height + (this.pos.y * -5));
         //this.font.draw(renderer, "Points: " + game.data.score , this.pos.x,  this.pos.y);
         //this.font.draw(renderer, "Points: " + game.data.score , me.game.viewport.width + this.pos.x , me.game.viewport.height +this.pos.y);
