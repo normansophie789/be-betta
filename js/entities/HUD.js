@@ -85,6 +85,7 @@ game.HUD.ScoreItem = me.Renderable.extend({
             game.data.score ++;
             game.data.timer = 0
         }
+      
 		this.font.draw(renderer, "Score: " + game.data.score , me.game.viewport.width + (this.pos.x * -2), me.game.viewport.height + (this.pos.y * -5));
         //this.font.draw(renderer, "Points: " + game.data.score , this.pos.x,  this.pos.y);
         //this.font.draw(renderer, "Points: " + game.data.score , me.game.viewport.width + this.pos.x , me.game.viewport.height +this.pos.y);
