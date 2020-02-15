@@ -44,11 +44,20 @@ module.exports = function(grunt) {
           dest: 'build/',
           expand: true
         },
-      {
-        src: 'assets/**/*',
-        dest: 'build/',
-        expand: true
-      }]
+        {
+          src: 'assets/**/*',
+          dest: 'build/',
+          expand: true
+        },
+        {
+          src: 'pages/**/*',
+          dest: 'build',
+          expand: true
+        },
+        {
+          src: 'index.html',
+          dest: 'build/index.html'
+        }]
       }
     },
 
@@ -66,7 +75,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'build/index.html': ['index.html']
+          'build/online-game.html': ['online-game.html']
         }
       }
     },
