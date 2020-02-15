@@ -27,6 +27,5 @@ game.TitleScreen = me.ScreenObject.extend({
      */
     onDestroyEvent: function() {
         me.input.unbindKey(me.input.KEY.ENTER);
-        //me.game.world.removeChild(this.HUD);
     }
 });
