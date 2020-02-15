@@ -6,7 +6,7 @@ module.exports = function(grunt) {
       dist: {
         src: [
           'lib/melonjs.js',
-          'lib/plugins/**/*.js',
+          'lib/plugins/prod/*.js',
           'js/game.js',
           'build/js/resources.js',
           'js/**/*.js',
@@ -17,26 +17,46 @@ module.exports = function(grunt) {
 
     copy: {
       dist: {
-        files: [{
+        files: [
+        {
           src: 'index.css',
           dest: 'build/index.css'
-        },{
+        },
+        {
           src: 'main.js',
           dest: 'build/main.js'
-        },{
+        },
+        {
           src: 'manifest.json',
           dest: 'build/manifest.json'
-        },{
+        },
+        {
           src: 'package.json',
           dest: 'build/package.json'
-        },{
+        },
+        {
           src: 'data/**/*',
           dest: 'build/',
           expand: true
-        },{
+        },
+        {
           src: 'icons/*',
           dest: 'build/',
           expand: true
+        },
+        {
+          src: 'assets/**/*',
+          dest: 'build/',
+          expand: true
+        },
+        {
+          src: 'pages/**/*',
+          dest: 'build',
+          expand: true
+        },
+        {
+          src: 'index.html',
+          dest: 'build/index.html'
         }]
       }
     },
@@ -55,7 +75,7 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          'build/index.html': ['index.html']
+          'build/online-game.html': ['online-game.html']
         }
       }
     },
